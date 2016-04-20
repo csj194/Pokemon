@@ -9,14 +9,14 @@ number of theoretical stages required for this separation.'''
 #Absorption of Acetone in a Countercurrent Stage Tower
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.animation as anime
+
 
 #Variable Declaration
 VN1 = 30.0       #Inlet Gas Flow Rate, kg mol/hr
 L0 = 90.0        #Inlet Liquid Flow Rate, kg mol/hr
 xA0 = 0.00       #Mole fraction of Acetone in entering Water
 yAN1 = 0.01     #Mole fraction of Acetone in entering Air
-AAAds = 99.999     #Percent of acetone absorbed
+AAAds = 90.00    #Percent of acetone absorbed
 H = 2.53
 
 
@@ -73,13 +73,16 @@ while x1 <= xAN:
         break
     plt.text(x2, y2-0.0007, str(n+1))
     plt.plot([x1,x2], [y1,y2], 'k-', lw=1)      #Draw Horizontal line to equilibrium curve
+    plt.pause(0.01)     
     x1 = x2
     y1 = y2
     y2 = ypos(x1) 
     plt.plot([x1, x2], [y1, y2], 'k-', lw=1)    #Draw a vertical line to operating line
+    plt.pause(0.01)
     n = n+1
     x1 = x2
     y1 = y2 
+    
   
 print "Acetone laden air rate from the absorber:",V1, "kgmol air/hr"
 print "Acetone concentration in leaving stream", round(yA1,6)

@@ -39,18 +39,18 @@ Conclusions:
 
 class GasAbsorption:
     R=8314.462 #J/kmol.K        
-    Top=25.0#Centigrade
+    Top=50.0#Centigrade
     Pop=101325.0 #Pascal
     Ar=1.0 #m^2 
-    H=30.0 #m
+    H=10.0 #m
     rhomolar=55.55 #kmol/m^3
-    kl1=29.39e-7#m^2/s
-    kl2= 17.77e-7#m^2/s
-    kg= 1.367e-3#m^2/s
-    a=330.0#1/m
-    hc1=140.0#Pa/(kmol/m^3)
-    hc2=130.0#Pa/(kmol/m^3)
-    if Top<100:
+    kl1=29.39e-7#m^2/s '''Reference: E. Zamanian, M. Hemmati and M. S. Beiranvand,Determination of gas-diffusion and interface-mass-transfer coefficients in fracture-heavy oil saturated porous matrix system,NAFTA 63 (11-12) 351-358 (2012)'''
+    kl2= 17.77e-7#m^2/s '''Reference: E. Zamanian, M. Hemmati and M. S. Beiranvand,Determination of gas-diffusion and interface-mass-transfer coefficients in fracture-heavy oil saturated porous matrix system,NAFTA 63 (11-12) 351-358 (2012)'''
+    kg= 1.367e-3#m^2/s ''' Reference: Onda, Kakusaburo, Hiroshi Takeuchi, and Yoshio Okumoto. "Mass transfer coefficients between gas and liquid phases in packed columns." Journal of Chemical Engineering of Japan 1.1 (1968): 56-62.'''
+    a=330.0#1/m '''(Reference: A. H. M. Faisal Anwar,Effect of Greywater Irrigation on Air-Water Interfacial area in Porous Medium ,International Scholarly and Scientific Research & Innovation 6(1) 2012 '''
+    hc1=140.0#Pa/(kmol/m^3)'''Refernce: http://webbook.nist.gov/cgi/cbook.cgi?ID=C74828&Mask=10#Solubility'''
+    hc2=3400.0#Pa/(kmol/m^3)  '''Reference: http://webbook.nist.gov/cgi/cbook.cgi?ID=C124389&Mask=10#Solubility'''
+    if Top<100:#'''Reference: http://webbook.nist.gov/cgi/cbook.cgi?ID=C7732185&Mask=4&Type=ANTOINE&Plot=on#ANTOINE'''
         antA= 8.07131
         antB= 1730.63
         antC= 233.426
@@ -232,7 +232,7 @@ class GasAbsorption:
         bb = t.get_bbox_patch()
         bb.set_boxstyle("rarrow", pad=0.6)
         bbox_props1 = dict(boxstyle="larrow,pad=0.3", fc="cyan", ec="b", lw=2)
-        t1 = ax.text(4,11, "Liquid Phase Direction", ha="center", va="center", rotation=0,size=6,bbox=bbox_props1)
+        t1 = ax.text(7,11, "Liquid Phase Direction", ha="center", va="center", rotation=0,size=6,bbox=bbox_props1)
         bb1 = t1.get_bbox_patch()
         bb1.set_boxstyle("larrow", pad=0.6)
         ax.plot(x,gascomp1)
